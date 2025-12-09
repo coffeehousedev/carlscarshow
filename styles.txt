@@ -1,0 +1,4 @@
+black - rgb(20, 19, 19) 
+red - rgb(235, 58, 40) 
+white - (246, 246, 245) 
+chrome silver - rgb(118, 119, 119)
