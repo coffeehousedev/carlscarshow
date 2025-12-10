@@ -20,39 +20,88 @@
     <main class="main-grid">
         <section class="about-section">
             <h2>About</h2>
-	    <div class="main-section">
-	    </div>
-	</section>
+	    	<div class="main-section about-box">
+				<img src="images/carl.png" alt="Carl with car" class="carl-img"/>
+				<h3>Hi There!</h3>
+				<p>In 1961, my grandpa, Carl Sr., created "Carl's Car Show." When my grandpa retired
+				in 1998, we agreed that the car show would only accept cars 25 years old and older.
+				Since then, I have grown the car show to be the biggest vintage car show in America.
+				We had 1,008 cars register last year, and we hope to have even more this year. I'm
+				excited to see you at the show!
+				</p>
+	    	</div>
+		</section>
         <section class="registration-section">
             <h2>Register Your Car!</h2>
-	    <div class="main-section">
-			<form class="registration-form">
+	    	<div class="main-section">
+				<form class="registration-form">
 
-		    	<span>
-					<label>First Name:</label>
-					<input type="text" id="first-name" name="first name" required>
+		    		<span class="form-item">
+						<label type="text">First Name:</label>
+						<input type="text" class="input" id="first-name" name="first name" required>
+		     		</span>
 
-					<label>Last Name:</label>
-					<input type="text" id="last-name" name="last name" required>
-		     	</span>
+					<span class="form-item">
+						<label type="text">Last Name:</label>
+						<input type="text" class="input" id="last-name" name="last name" required>
+					</span>
 
-				<label type="email">Email:</label>
-				<input type="email" id="email" name="email" required>
+					<span class="form-item">
+						<label type="email">Email:</label>
+						<input type="email" class="input" id="email" name="email" required>
+					</span>
+				
+					<span class="form-item">
+						<label type="number">Car Year:</label>
+						<input type="number" class="input" min="1950" max="2000" id="car-year" name="car year" required>
+					</span>
 
-				<label type="number">Car Year:</label>
-				<input type="number" min="1950" max="2025" id="car-year" name="car year" required>
+					<span class="form-item">
+						<label type="text">Make:</label>
+						<input type="text" class="input" id="make" name="make" required>
+					</span>
 
-				<label type="text">Make:</label>
-				<input type="text" id="make" name="make" required>
+					<span class="form-item">
+						<label type="text">Model:</label>
+						<input type="text" class="input" id="model" name="model" required>
+					</span>
 
-				<label type="text">Model:</label>
-				<input type="text" id="model" name="model" required>
-	    	</form>
-	    </div>
+					<span class="form-item">
+						<label type="text">Color:</label>
+						<input type="text" class="input" id="color" name="color">
+					</span>
+
+					<span class="form-item">
+						<label type="text">Category:</label>
+						<select class="input" id="category" name="category">
+							<option value="option1">Muscle</option>
+							<option value="option2">Classic</option>
+							<option value="option3">Import</option>
+							<option value="option4">Hot Rod</option>
+							<option value="option5">Other</option>
+						</select>
+					</span>
+
+					<span class="form-item">
+						<label type="text">Optional Description:</label>
+					</span>
+
+					<span class="form-item">
+					<textarea class="input" rows="5" id="description" name="description"></textarea>
+					</span>
+	    		</form>
+	    	</div>
 	</section>
 	<section class="raffle-section">
 	    <h2>Raffle</h2>
-	    <div class="main-section">
+	    <div class="main-section raffle-box">
+			<video src="videos/raffle-car.mp4" controls class="raffle-car-video"></video>
+			<h3>50/50 Raffle!</h3>
+			<p>There will be volunteers going around the show selling 50/50 raffle tickets
+			for $10 each. At the end of the show, we will pick one winner who will win
+			this beautiful 1961 vintage car and 50% of the money collected. The other 
+			50% of money will be donated to Cars for Veterans which is a great
+			organization that helps veterans afford transportation.
 	    </div>
 	</section>
     </main>

@@ -9,17 +9,19 @@ body {
 footer {
     background-color: rgb(118, 119, 119);
     text-align: center;
+	font-size: 2rem;
     clear: both;
     color: rgb(20, 19, 19);
     padding: 2rem;
     margin-top: auto;
+	border-radius: 1rem;
 }
 
 header {
     background-color: rgb(20, 19, 19);
 }
 
-h1, h2, h3 {
+h1 {
     background: repeating-conic-gradient(rgb(20, 19, 19) 0% 25%, rgb(235, 58, 40) 0% 50%) 50% / .25rem .25rem;
     background-clip: text;
     text-align: center;
@@ -30,8 +32,33 @@ h1, h2, h3 {
     margin: 0;
 }
 
+h2 {
+	background: repeating-conic-gradient(rgb(20, 19, 19) 0% 25%, rgb(235, 58, 40) 0% 50%) 50% / .25rem .25rem;
+    background-clip: text;
+    text-align: center;
+    font-size: 3rem;
+    font-family: "Knewave", system-ui;
+    color: transparent;
+    padding: 0;
+    margin: 0;
+	margin-bottom: 1rem;
+}
+
+h3 {
+	background: repeating-conic-gradient(rgb(20, 19, 19) 0% 25%, rgb(235, 58, 40) 0% 50%) 50% / .25rem .25rem;
+    background-clip: text;
+    text-align: center;
+    font-size: 2.5rem;
+    font-family: "Knewave", system-ui;
+    color: transparent;
+    padding: 0;
+    margin: 0;
+}
+
 p {
-    margin: .5rem;
+    text-align: center;
+	margin-left: .25rem;
+	margin-right: .25rem;
 }
 
 nav ul {
@@ -42,16 +69,28 @@ nav ul {
     top: 100%;
     left: 0;
     right: 0;
-    background-color: rgb(248, 235, 240);
+    background-color: rgb(118, 119, 119);
     padding: 1rem;
     gap: 1rem;
+	border-radius: 1rem;
+	margin: 0;
+}
+
+nav {
+	position: relative;
 }
 
 nav a {
-    color: rgb(230, 126, 34);
+    color: rgb(20, 19, 19);
     text-decoration: none;
     font-size: 1.1rem;
-    font-family: "BBH Sans Hegarty", serif;
+    font-family: "Knewave", system-ui;
+}
+
+nav a:hover {
+	background-color: rgb(246, 246, 245);
+	padding: 1rem;
+	border-radius: 1rem;
 }
 
 nav ul.active {
@@ -85,6 +124,14 @@ nav ul.active {
     to { transform: rotate(360deg); }
 }
     
+.main-grid {
+	gird-template-rows: 1fr 1fr 1fr;
+	display: grid;
+	gap: 1rem;
+	margin: 1rem;
+	justify-content: center;
+}
+
 .main-section {
     background-color: rgb(118, 119, 119);
     border-radius: 1rem;
@@ -100,7 +147,97 @@ nav ul.active {
     padding: 0.5rem;
 }
 
+.registration-form {
+	display: flex;
+	justify-content: center;
+	flex-direction: column;
+	font-size: 1rem;
+}
+
+.form-item {
+	margin-left: auto;
+	margin-right: auto;
+	display: flex;
+	padding: .25rem;
+}
+
+.input {
+	margin-right: .5rem;
+	margin-left: .5rem;
+	font-family: "Chewy", system-ui;
+	font-size: .75rem;
+	border-radius: .5rem;
+	border: .15rem solid rgb(20, 19, 19);
+}
+
+.input:focus {
+	outline: none;
+	border: .15rem solid rgb(235, 58, 40);
+}
+
+.about-box {
+	display: flex;
+	flex-direction: column;
+}
+
+.carl-img {
+	max-width: 100%;
+	max-height: 100%;
+	border-radius: 2rem;
+	border: .25rem solid rgb(20, 19, 19);
+	margin: .25rem;
+}
+
+.raffle-box {
+	display: flex;
+	flex-direction: column;
+}
+
+.raffle-car-video {
+	max-width: 100%;
+	max-height: 100%;
+	border-radius: 2rem;
+	border: .25rem solid rgb(20, 19, 19);
+	margin: .25rem;
+}
+
 @media (min-width: 481px){
+	.main-grid {
+		gird-template-rows: 1fr 1fr 1fr;
+		display: grid;
+		gap: 1rem;
+		margin: 1rem;
+		justify-content: center;
+	}
+
+	.registration-form {
+		display: flex;
+		justify-content: center;
+		flex-direction: column;
+		font-size: 2rem;
+	}
+
+	.form-item {
+		margin-left: auto;
+		margin-right: auto;
+		display: flex;
+		padding: .5rem;
+	}
+
+	.input {
+		margin-right: 1rem;
+		margin-left: 1rem;
+		font-family: "Chewy", system-ui;
+		font-size: 1.5rem;
+		border-radius: 1rem;
+		border: .25rem solid rgb(20, 19, 19);
+	}
+
+	.input:focus {
+		outline: none;
+		border: .25rem solid rgb(235, 58, 40);
+	}
+
 }
 
 @media (min-width: 1025px){
@@ -112,15 +249,44 @@ nav ul.active {
         max-width: 10%;
         max-height: 5%;
         padding: 0;
-	display: block;
+		display: block;
     }
 
     .main-grid {
-        grid-template-columns: 1fr 3fr 1fr;
+        grid-template-columns: 2fr 4fr 2fr;
         display: grid;
         gap: 1rem;
+		margin: 1rem;
+		justify-content: center:
     }
 
+	.registration-form {
+		display: flex;
+		justify-content: center;
+		flex-direction: column;
+		font-size: 2rem;
+	}
+
+	.form-item {
+		margin-left: auto;
+		margin-right: auto;
+		display: flex;
+		padding: .5rem;
+	}
+
+	.input {
+		margin-right: 1rem;
+		margin-left: 1rem;
+		font-family: "Chewy", system-ui;
+		font-size: 1.5rem;
+		border-radius: 1rem;
+		border: .25rem solid rgb(20, 19, 19);
+	}
+	
+	.input:focus {
+		outline: none;
+		border: .25rem solid rgb(235, 58, 40);
+	}
 
     nav ul {
         list-style: none;
