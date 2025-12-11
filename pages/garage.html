@@ -1,1 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Garage</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <script src="../js/script.js"></script>
+    <script src="../js/navbar.js"></script>
+</head>
+<body>
+	<header>
+		<div class="header-row">
+			<img src="../images/vintage-wheel.png" alt="vintage-wheel" class="vintage-wheel-left vintage-wheel">
+			<h1>Garage</h1>
+			<img src="../images/vintage-wheel.png" alt="vintage-wheel" class="vintage-wheel-right vintage-wheel">
+		</div>
+    </header>
+	<main>
+    	<section class="cars-section">
+	    	<div class="main-section table-wrapper">
+				<table class="responsive-table">
+					<caption>Registered Cars</caption>
+					<thead>
+						<tr>
+							<th>First Name</th>
+							<th>Last Name</th>
+							<th>Email</th>
+							<th>Car Year</th>
+							<th>Make</th>
+							<th>Model</th>
+							<th>Color</th>
+							<th>Category</th>
+							<th>Description</th>
+						</tr>
+					</thead>
+					<tbody id="filter-tbody">
+					</tbody>
+					<tfoot>
+						<tr id="footer-row">
+							<td colspan="4"><button id="clear-data">Clear Data</button></td>
+							<td colspan="3"><input type="text" id="filter-input" placeholder="Search cars..."></td>
+						</tr>
+					</tfoot>
+				</table>
+			</div>
+		</section>
+	</main>
+    <footer>
+        <p>&copy; 2025 Carl's Car Show. All rights reserved.</p>
+    </footer>
+</body>
+

@@ -1,24 +1,17 @@
-
-
-function validateLastName() {
-	var lastNameValue = lastNameInput.value;
+function deleteTicket(index) {
+	// Get the current tickets
+	let allCars = JSON.parse(localStorage.getItem('cars')) || [];
+	
+	// Remove the ticket at the specified index
+	allCars.splice(index, 1);
+	
+	// Save the updated array back to localStorage
+	localStorage.setItem('cars', JSON.stringify(allCars));
+	
+	// Reload the page to show the updated table
+	location.reload();
 }
 
-function validateEmail() {
-	var emailValue = emailInput.value;
-}
-
-function validateCarYear() {
-	var carYearValue = carYearInput.value;
-}
-
-function validateMake() {
-	var makeValue = makeInput.value;
-}
-
-function validateModel() {
-	var modelValue = modelInput.value;
-}
 
 document.addEventListener('DOMContentLoaded', function() {
 	var firstNameInput = document.getElementById("first-name");
@@ -137,37 +130,104 @@ document.addEventListener('DOMContentLoaded', function() {
 	}
 
 
-	firstNameInput.addEventListener('input', validateFirstName);
-	lastNameInput.addEventListener('input', validateLastName);
-	emailInput.addEventListener('input', validateEmail);
-	carYearInput.addEventListener('input', validateCarYear);
-	makeInput.addEventListener('input', validateMake);
-	modelInput.addEventListener('input', validateModel);
+	var form = document.querySelector(".registration-form");
+	if (form) {
+		firstNameInput.addEventListener('input', validateFirstName);
+		lastNameInput.addEventListener('input', validateLastName);
+		emailInput.addEventListener('input', validateEmail);
+		carYearInput.addEventListener('input', validateCarYear);
+		makeInput.addEventListener('input', validateMake);
+		modelInput.addEventListener('input', validateModel);
 
-	document.querySelector(".registration-form").addEventListener("submit", function(event) {
-		let car = {
-			firstName: document.getElementById("first-name").value,
-			lastName: document.getElementById("last-name").value,
-			email: document.getElementById("email").value,
-			carYear: document.getElementById("car-year").value,
-			make: document.getElementById("make").value,
-			model: document.getElementById("model").value,
-			color: document.getElementById("color").value,
-			category: document.getElementById("category").value,
-			description: document.getElementById("description").value,
-		};
+		form.addEventListener("submit", function(event) {
+			event.preventDefault();
+			let car = {
+				firstName: document.getElementById("first-name").value,
+				lastName: document.getElementById("last-name").value,
+				email: document.getElementById("email").value,
+				carYear: document.getElementById("car-year").value,
+				make: document.getElementById("make").value,
+				model: document.getElementById("model").value,
+				color: document.getElementById("color").value,
+				category: document.getElementById("category").value,
+				description: document.getElementById("description").value,
+			};
 
-		let allCars = JSON.parse(localStorage.getItem('cars')) || [];
+			let allCars = JSON.parse(localStorage.getItem('cars')) || [];
 
-		allCars.push(car);
-		
-		localStorage.setItem('cars', JSON.stringify(allCars));
+			allCars.push(car);
+			
+			localStorage.setItem('cars', JSON.stringify(allCars));
 
-		window.location.href = 'garage.html';
+			window.location.href = 'pages/garage.html';
+		});
+	}
 
-		let allCars = JSON.parse(localStorage.getItem('tickets')) || [];
+	function loadCarTable() {
+		let tbody = document.getElementById('filter-tbody');
 
-	});
+		if (tbody) {
+			let allCars = JSON.parse(localStorage.getItem('cars')) || [];
+
+			tbody.innerHTML = '';
+
+			allCars.forEach(function(car, index) {
+				let row = `
+					<tr>
+						<td>${car.firstName}</td>
+						<td>${car.lastName}</td>
+						<td>${car.email}</td>
+						<td>${car.carYear}</td>
+						<td>${car.make}</td>
+						<td>${car.model}</td>
+						<td>${car.color}</td>
+						<td>${car.category}</td>
+						<td>${car.description}</td>
+						<td>
+							<button onclick="deleteTicket(${index})">Delete</button>
+						</td>
+					</tr>
+				`;
+				tbody.innerHTML += row;
+			});
+		}
+	}
+
+	function displayCarTotal() {
+		let tfootRow = document.getElementById('footer-row');
+
+		if (tfootRow) {
+			let allCars = JSON.parse(localStorage.getItem('cars')) || [];
+
+			tfootRow.innerHTML += `<td colspan="3">Total Cars: ${allCars.length}</td>`;
+		}
+	}
+
+	displayCarTotal();
+
+	var filterInput = document.getElementById('filter-input');
+	if (filterInput) {
+		filterInput.addEventListener('input', function(e) {
+			const filterValue = e.target.value.toLowerCase();
+			const rows = document.querySelectorAll('#filter-tbody tr');
+
+			rows.forEach(row => {
+				const text = row.textContent.toLowerCase();
+				row.style.display = text.includes(filterValue) ? '' : 'none';
+			});
+		});
+	}
+
+	var clearDataButton = document.getElementById('clear-data');
+
+	if (clearDataButton) {
+		clearDataButton.addEventListener("click", function() {
+			localStorage.removeItem('cars');
+			loadCarTable();
+		});
+	}
+
+	loadCarTable();
 });
 
 
