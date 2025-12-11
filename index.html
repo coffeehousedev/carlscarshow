@@ -18,9 +18,9 @@
     </header>
 	
     <main class="main-grid">
-        <section class="about-section">
-            <h2>About</h2>
-	    	<div class="main-section about-box">
+        <section>
+			<h2>About</h2>
+	    	<div class="main-section">
 				<img src="images/carl.png" alt="Carl with car" class="carl-img"/>
 				<h3>Hi There!</h3>
 				<p>In 1961, my grandpa, Carl Sr., created "Carl's Car Show." When my grandpa retired
@@ -34,36 +34,43 @@
         <section class="registration-section">
             <h2>Register Your Car!</h2>
 	    	<div class="main-section">
-				<form class="registration-form">
+				<form class="registration-form" method="POST" action="#">
 
 		    		<span class="form-item">
-						<label type="text">First Name:</label>
-						<input type="text" class="input" id="first-name" name="first name" required>
+						<label type="text">First Name<span class="required-indicator">*</span>:</label>
+						<input type="text" class="input" id="first-name" name="first name" pattern="[A-Za-z]+" required>
+						<div class="error-message" id="first-name-error"></div>
 		     		</span>
 
 					<span class="form-item">
-						<label type="text">Last Name:</label>
-						<input type="text" class="input" id="last-name" name="last name" required>
+						<label type="text">Last Name<span class="required-indicator">*</span>:</label>
+						<input type="text" class="input" id="last-name" name="last name" pattern="[A-Za-z]+" required>
+						<div class="error-message" id="last-name-error"></div>
 					</span>
 
 					<span class="form-item">
-						<label type="email">Email:</label>
-						<input type="email" class="input" id="email" name="email" required>
+						<label type="email">Email<span class="required-indicator">*</span>:</label>
+						<input type="email" class="input" id="email" name="email"
+						pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" required>
+						<div class="error-message" id="email-error"></div>
 					</span>
 				
 					<span class="form-item">
-						<label type="number">Car Year:</label>
-						<input type="number" class="input" min="1950" max="2000" id="car-year" name="car year" required>
+						<label type="number">Car Year<span class="required-indicator">*</span>:</label>
+						<input type="number" class="input" min="1950" max="2000" id="car-year" name="car year" pattern="[1950-2000]{4}" required>
+						<div class="error-message" id="car-year-error"></div>
 					</span>
 
 					<span class="form-item">
-						<label type="text">Make:</label>
-						<input type="text" class="input" id="make" name="make" required>
+						<label type="text">Make<span class="required-indicator">*</span>:</label>
+						<input type="text" class="input" id="make" name="make" pattern="[A-Za-z0-9]+" required>
+						<div class="error-message" id="make-error"></div>
 					</span>
 
 					<span class="form-item">
-						<label type="text">Model:</label>
-						<input type="text" class="input" id="model" name="model" required>
+						<label type="text">Model<span class="required-indicator">*</span>:</label>
+						<input type="text" class="input" id="model" name="model" pattern="[A-Za-z0-9]+" required>
+						<div class="error-message" id="model-error"></div>
 					</span>
 
 					<span class="form-item">
@@ -89,12 +96,14 @@
 					<span class="form-item">
 					<textarea class="input" rows="5" id="description" name="description"></textarea>
 					</span>
+
+					<button type="submit">Submit</button>
 	    		</form>
 	    	</div>
 	</section>
 	<section class="raffle-section">
 	    <h2>Raffle</h2>
-	    <div class="main-section raffle-box">
+	    <div class="main-section">
 			<video src="videos/raffle-car.mp4" controls class="raffle-car-video"></video>
 			<h3>50/50 Raffle!</h3>
 			<p>There will be volunteers going around the show selling 50/50 raffle tickets
